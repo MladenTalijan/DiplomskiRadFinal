@@ -1,5 +1,9 @@
 package com.pst.szdr.servis;
 
+import com.pst.szdr.bo.DiplBo;
+import com.pst.szdr.dao.DiplDao;
+import com.pst.szdr.vo.DiplVo;
+
 public class DiplServis {
 	DiplDao diplDao = null;
     DiplBo diplBo = null;

@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 public class AddDiplController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	 	DiplVo diplVo = null;
-	    DiplServis diplServis = null;
+	DiplVo diplVo = null;
+    DiplServis diplServis = null;
 	    
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
