@@ -1,5 +1,5 @@
 package com.pst.szdr.dao;
-
+//Data access object
 public class DiplDao {
 	private final String SAVE_DIPL = "insert into diplomski(name, nameLastname, brojIndeksa, smer, nameLastnameM)values(?,?,?,?,?)";
     public int addDipl(DiplBo diplBo){

@@ -1,6 +1,6 @@
-package com.pst.szdr.vo;
-//value object
-public class DiplVo {
+package com.pst.szdr.bo;
+//Business object
+public class DiplBo {
 	private String name;
     private String nameLastname;
     private String brojIndeksa;
@@ -36,6 +36,4 @@ public class DiplVo {
 	public void setNameLastnameM(String nameLastnameM) {
 		this.nameLastnameM = nameLastnameM;
 	}
-    
-    
 }
