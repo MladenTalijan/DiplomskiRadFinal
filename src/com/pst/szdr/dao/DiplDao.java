@@ -57,7 +57,7 @@ public class DiplDao {
     	return diplList;
     }
     public boolean delete(String name) {
-    	boolean status = false;
+    	boolean status = true;
     	try {
     		Connection con = DbConnection.getConn();
         	PreparedStatement ps = con.prepareStatement(DELETE_DIPL);

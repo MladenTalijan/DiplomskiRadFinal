@@ -18,7 +18,10 @@ public class DeleteDiplController extends HttpServlet {
 		String name = request.getParameter("name");
 		servis = new DiplServis();
 		boolean status = servis.removeDipl(name);
-		System.out.println("con"+status);
+		if(status == false) {
+			String msg = "Diplomski je uspesno obrisan.";
+			response.sendRedirect("./delete_dipl.jsp?message="+msg);
+		}
 	}
 
 }
