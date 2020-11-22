@@ -89,12 +89,16 @@
                 }
                 }
         </script>
+        <%
+        String msg = (String)request.getAttribute("msg");
+        %>
         
         <div><%@include file="header.html"%> </div>
         
         <div class="container">
             <center>
                 <h1>Dodaj diplomski rad</h1>
+                <%= msg %>
                 <form action="./AddDiplController" name ="dipl_form" method="post" onsubmit="return doValidate()">
                 <table>
                     <tr><td>Naziv diplomskog rada</td><td><input type="text" name="name"><span id = "nameMsg"></span></td></tr>

@@ -37,7 +37,9 @@ public class AddDiplController extends HttpServlet {
         int i = diplServis.saveDipl(diplVo);
         
         if(i != 0){
-            response.getWriter().print("Uspesno ste dodali diplomski rad.");//01.10
+        	String msg = "Uspesno ste dodali diplomski rad";
+        	request.setAttribute("msg", msg);
+            request.getRequestDispatcher("./add_dipl.jsp").forward(request, response);
         }
 	}
 
