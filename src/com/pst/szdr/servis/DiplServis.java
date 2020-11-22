@@ -27,4 +27,8 @@ public class DiplServis {
     	diplDao = new DiplDao();
     	return diplDao.viewDipl();
     }
+    public boolean removeDipl(String name) {
+    	diplDao = new DiplDao();
+    	return diplDao.delete(name);
+    }
 }

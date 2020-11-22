@@ -15,7 +15,8 @@ import com.pst.szdr.util.DbConnection;
 public class DiplDao {
 	private final String SAVE_DIPL = "insert into diplomski(name, nameLastname, brojIndeksa, smer, nameLastnameM)values(?,?,?,?,?)";
 	private final String VIEW_DIPL ="select name, nameLastname, brojIndeksa, smer, nameLastnameM from diplomski";
-    public int addDipl(DiplBo diplBo){
+    private final String DELETE_DIPL = "delete from diplomski where name = ?";
+	public int addDipl(DiplBo diplBo){
       //do database operation logic
       int i = 0;
         try{
@@ -54,5 +55,18 @@ public class DiplDao {
     		e.printStackTrace();
     	}
     	return diplList;
+    }
+    public boolean delete(String name) {
+    	boolean status = false;
+    	try {
+    		Connection con = DbConnection.getConn();
+        	PreparedStatement ps = con.prepareStatement(DELETE_DIPL);
+        	ps.setString(1, name);
+        	status = ps.execute();
+        	System.out.println("status:: " + status);
+    	}catch(Exception e) {
+    		e.getStackTrace();
+    	}
+    	return status;
     }
 }
