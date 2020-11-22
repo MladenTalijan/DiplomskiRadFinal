@@ -9,6 +9,7 @@ import java.util.List;
 import com.pst.szdr.bo.DiplBo;
 import com.pst.szdr.dto.DiplDto;
 import com.pst.szdr.util.DbConnection;
+import com.pst.szdr.vo.DiplVo;
 
 
 //Data access object
@@ -16,7 +17,9 @@ public class DiplDao {
 	private final String SAVE_DIPL = "insert into diplomski(name, nameLastname, brojIndeksa, smer, nameLastnameM)values(?,?,?,?,?)";
 	private final String VIEW_DIPL ="select name, nameLastname, brojIndeksa, smer, nameLastnameM from diplomski";
     private final String DELETE_DIPL = "delete from diplomski where name = ?";
-	public int addDipl(DiplBo diplBo){
+    private final String SEARCH_DIPL = "select name, nameLastname, brojIndeksa, smer, nameLastnameM from diplomski where name=?";
+	private final String UPDATE_DIPL = "update diplomski set nameLastname=?, brojIndeksa=?, smer=?, nameLastnameM=? where name=?";
+    public int addDipl(DiplBo diplBo){
       //do database operation logic
       int i = 0;
         try{
@@ -68,5 +71,41 @@ public class DiplDao {
     		e.getStackTrace();
     	}
     	return status;
+    }
+    public DiplDto getDiplDetails(String name) {
+    	DiplDto dto = null;
+    	try {
+    		Connection con = DbConnection.getConn();
+        	PreparedStatement ps = con.prepareStatement(SEARCH_DIPL);
+        	ps.setString(1, name);
+        	ResultSet rs = ps.executeQuery();
+        	if(rs.next()) {
+        		dto = new DiplDto();
+        		dto.setName(rs.getString(1));
+        		dto.setNameLastname(rs.getString(2));
+        		dto.setBrojIndeksa(rs.getString(3));
+        		dto.setSmer(rs.getString(4));
+        		dto.setNameLastnameM(rs.getString(5));
+        	}
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}
+    	return dto;
+    }
+    public int updateDipl(DiplBo diplBo) {
+    	int i = 0;
+    	try {
+    		Connection con = DbConnection.getConn();
+        	PreparedStatement ps = con.prepareStatement(UPDATE_DIPL);
+        	ps.setString(1, diplBo.getNameLastname());
+        	ps.setString(2, diplBo.getBrojIndeksa());
+        	ps.setString(3, diplBo.getSmer());
+        	ps.setString(4, diplBo.getNameLastnameM());
+        	ps.setString(5, diplBo.getName());
+        	i = ps.executeUpdate();
+    	}catch(Exception e) {
+    		e.getStackTrace();
+    	}
+    	return i;
     }
 }

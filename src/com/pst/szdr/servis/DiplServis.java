@@ -31,4 +31,21 @@ public class DiplServis {
     	diplDao = new DiplDao();
     	return diplDao.delete(name);
     }
+    public DiplDto searchDipl(String name) {
+    	diplDao = new DiplDao();
+    	return diplDao.getDiplDetails(name);
+    }
+    public int modifyDipl(DiplVo diplVo) {
+    	diplDao = new DiplDao();
+        diplBo = new DiplBo();
+        diplBo.setName(diplVo.getName());
+        diplBo.setNameLastname(diplVo.getNameLastname());
+        diplBo.setBrojIndeksa(diplVo.getBrojIndeksa());
+        diplBo.setSmer(diplVo.getSmer());
+        diplBo.setNameLastnameM(diplVo.getNameLastnameM());
+        
+        diplDao = new DiplDao();
+        return diplDao.updateDipl(diplBo);
+        
+    }
 }
