@@ -8,7 +8,7 @@
 </head>
 <body>
 		<div><%@include file="header.html"%> </div>
-        <div>Dobrodosli na početnu stranu</div>
+        <div>Dobrodosli na pocetnu stranu</div>
         <div><%@include file="footer.html"%> </div>
 </body>
 </html>

@@ -2,7 +2,7 @@ package com.pst.szdr.util;
 
 import java.sql.DriverManager;
 
-import com.sun.jdi.connect.spi.Connection;
+import java.sql.Connection;
 
 public class DbConnection {
 	private static Connection con = null;
@@ -12,9 +12,13 @@ public class DbConnection {
     //JDBC
     //load the driver
         try {
-            Class.forName("com.mysql.jdbc.Driver"); //sredi racune u fascikle sutra 
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/diplomskirad", "root", "mladenmladen");
-        }catch(ClassNotFoundException | SQLException e){
+            Class.forName("com.mysql.jdbc.Driver");  
+            String JdbcURL = "jdbc:mysql://localhost:3306/diplomskirad";
+            String Username = "root";
+            String password = "mladenmladen";
+            con =  DriverManager.getConnection(JdbcURL, Username, password);
+         //   con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/diplomskirad", "root", "mladenmladen");
+        }catch(Exception e){
             e.printStackTrace();
         }
         return con;
@@ -24,5 +28,5 @@ public class DbConnection {
     //close
     
     }
+  }
 
-}
