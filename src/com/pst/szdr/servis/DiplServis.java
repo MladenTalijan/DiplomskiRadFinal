@@ -1,7 +1,10 @@
 package com.pst.szdr.servis;
 
+import java.util.List;
+
 import com.pst.szdr.bo.DiplBo;
 import com.pst.szdr.dao.DiplDao;
+import com.pst.szdr.dto.DiplDto;
 import com.pst.szdr.vo.DiplVo;
 
 public class DiplServis {
@@ -20,5 +23,8 @@ public class DiplServis {
         int i = diplDao.addDipl(diplBo);
         return i;
     }
-
+    public List<DiplDto> getAllDipl() {
+    	diplDao = new DiplDao();
+    	return diplDao.viewDipl();
+    }
 }

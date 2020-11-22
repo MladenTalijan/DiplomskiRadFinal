@@ -2,13 +2,19 @@ package com.pst.szdr.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.pst.szdr.bo.DiplBo;
+import com.pst.szdr.dto.DiplDto;
 import com.pst.szdr.util.DbConnection;
 
 
 //Data access object
 public class DiplDao {
 	private final String SAVE_DIPL = "insert into diplomski(name, nameLastname, brojIndeksa, smer, nameLastnameM)values(?,?,?,?,?)";
+	private final String VIEW_DIPL ="select name, nameLastname, brojIndeksa, smer, nameLastnameM from diplomski";
     public int addDipl(DiplBo diplBo){
       //do database operation logic
       int i = 0;
@@ -27,5 +33,26 @@ public class DiplDao {
             e.printStackTrace();
         }
         return i;
+    }
+    public List<DiplDto> viewDipl() {
+    	DiplDto dto = null;
+    	List<DiplDto> diplList = new ArrayList<>();
+    	try {
+    		Connection con = DbConnection.getConn();
+        	PreparedStatement ps = con.prepareStatement(VIEW_DIPL);
+        	ResultSet rs = ps.executeQuery();
+        	while(rs.next()) {
+        		dto = new DiplDto();
+        		dto.setName(rs.getString(1));
+        		dto.setNameLastname(rs.getString(2));
+        		dto.setBrojIndeksa(rs.getString(3));
+        		dto.setSmer(rs.getString(4));
+        		dto.setNameLastnameM(rs.getString(5));
+        		diplList.add(dto);
+        	}
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}
+    	return diplList;
     }
 }
