@@ -41,6 +41,7 @@ public class DiplDao {
     public List<DiplDto> viewDipl() {
     	DiplDto dto = null;
     	List<DiplDto> diplList = new ArrayList<>();
+    	
     	try {
     		Connection con = DbConnection.getConn();
         	PreparedStatement ps = con.prepareStatement(VIEW_DIPL);

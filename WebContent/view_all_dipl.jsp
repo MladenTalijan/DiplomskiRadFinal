@@ -1,12 +1,12 @@
 <%@page import="com.pst.szdr.dto.DiplDto"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<meta charset="UTF-8">
 <head>
-<meta charset="ISO-8859-1">
 <title>Pogledaj sve diplomske radove</title>
 </head>
 <body>
