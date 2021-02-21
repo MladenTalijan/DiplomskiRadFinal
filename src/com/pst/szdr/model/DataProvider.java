@@ -29,12 +29,14 @@ public class DataProvider {
 		try {
 			Statement stmt = con.createStatement();
 			rs = stmt.executeQuery("select email, sifra from profesori where email = '"+user.getEmail()+"' and sifra='"+user.getPassword()+"' ");
-			rs.next();
+			if(rs.next()) {
+			return "Uspesno ste se logovali";
+			}
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "Uspesno ste se logovali";
+		return "Korisnicko ime ili lozinka nisu dobri";
 	}
 }
