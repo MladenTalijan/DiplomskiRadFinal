@@ -4,11 +4,11 @@
 <html>
 <meta charset="UTF-8">
 <head>
-<title>Insert title here</title>
+<title>Servis za diplomske radove</title>
 </head>
 <body>
 		<div><%@include file="header.html"%> </div>
-        <div>Dobrodošli na početnu stranu</div>
+        <div>//////////////////////////////////////////|Dobrodošli na početnu stranu</div>
         <div><%@include file="footer.html"%> </div>
 </body>
 </html>

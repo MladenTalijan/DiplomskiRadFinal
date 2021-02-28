@@ -24,7 +24,7 @@ List<DiplDto> list = (ArrayList<DiplDto>)request.getAttribute("list");
 		</thead>
 		<%
 		for(DiplDto d : list){%>
-		<tr><td><%=d.getName() %>></td><td><%=d.getNameLastname() %>></td><td><%=d.getBrojIndeksa() %></td><td><%=d.getSmer() %></td><td><%=d.getNameLastnameM() %></td></tr>
+		<tr><td><%=d.getName() %></td><td><%=d.getNameLastname() %></td><td><%=d.getBrojIndeksa() %></td><td><%=d.getSmer() %></td><td><%=d.getNameLastnameM() %></td></tr>
 		<%}
 		%>
 		</table>
