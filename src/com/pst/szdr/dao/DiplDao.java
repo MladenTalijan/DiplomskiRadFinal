@@ -19,6 +19,7 @@ public class DiplDao {
     private final String DELETE_DIPL = "delete from diplomski where name = ?";
     private final String SEARCH_DIPL = "select name, nameLastname, brojIndeksa, smer, nameLastnameM, date from diplomski where name=?";
 	private final String UPDATE_DIPL = "update diplomski set nameLastname=?, brojIndeksa=?, smer=?, nameLastnameM=?, date=? where name=?";
+	private final String VIEW_DATE_DIPL = "select select name, nameLastname, brojIndeksa, smer, nameLastnameM, date from diplomski where date = ?";
     public int addDipl(DiplBo diplBo){
       //do database operation logic
       int i = 0;
@@ -112,5 +113,28 @@ public class DiplDao {
     		e.getStackTrace();
     	}
     	return i;
+    }
+    public List<DiplDto> viewDateDipl() {
+    	DiplDto dto = null;
+    	List<DiplDto> diplList = new ArrayList<>();
+    	
+    	try {
+    		Connection con = DbConnection.getConn();
+        	PreparedStatement ps = con.prepareStatement(VIEW_DATE_DIPL);
+        	ResultSet rs = ps.executeQuery();
+        	while(rs.next()) {
+        		dto = new DiplDto();
+        		dto.setName(rs.getString(1));
+        		dto.setNameLastname(rs.getString(2));
+        		dto.setBrojIndeksa(rs.getString(3));
+        		dto.setSmer(rs.getString(4));
+        		dto.setNameLastnameM(rs.getString(5));
+        		dto.setDate(rs.getString(6));
+        		diplList.add(dto);
+        	}
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}
+    	return diplList;
     }
 }

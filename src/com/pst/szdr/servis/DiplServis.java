@@ -48,6 +48,9 @@ public class DiplServis {
         
         diplDao = new DiplDao();
         return diplDao.updateDipl(diplBo);
-        
+    }
+    public List<DiplDto> getAllDiplDate() {
+    	diplDao = new DiplDao();
+    	return diplDao.viewDateDipl();
     }
 }
