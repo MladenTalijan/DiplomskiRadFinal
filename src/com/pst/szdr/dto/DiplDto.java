@@ -6,6 +6,8 @@ public class DiplDto {
     private String brojIndeksa;
     private String smer;
     private String nameLastnameM;
+    private String date;
+    
 	public String getName() {
 		return name;
 	}
@@ -36,4 +38,11 @@ public class DiplDto {
 	public void setNameLastnameM(String nameLastnameM) {
 		this.nameLastnameM = nameLastnameM;
 	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
+	}
+    
 }

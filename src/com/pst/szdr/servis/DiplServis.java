@@ -19,6 +19,7 @@ public class DiplServis {
         diplBo.setBrojIndeksa(diplVo.getBrojIndeksa());
         diplBo.setSmer(diplVo.getSmer());
         diplBo.setNameLastnameM(diplVo.getNameLastnameM());
+        diplBo.setDate(diplVo.getDate());
         
         int i = diplDao.addDipl(diplBo);
         return i;
@@ -43,6 +44,7 @@ public class DiplServis {
         diplBo.setBrojIndeksa(diplVo.getBrojIndeksa());
         diplBo.setSmer(diplVo.getSmer());
         diplBo.setNameLastnameM(diplVo.getNameLastnameM());
+        diplBo.setDate(diplVo.getDate());
         
         diplDao = new DiplDao();
         return diplDao.updateDipl(diplBo);

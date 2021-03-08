@@ -15,6 +15,7 @@ import com.pst.szdr.model.DataProvider;
 /**
  * Servlet implementation class Register
  */
+
 @WebServlet("/Register")
 public class Register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -40,7 +41,9 @@ public class Register extends HttpServlet {
 		String password = request.getParameter("upass");
 		String email = request.getParameter("email");
 		
-		out.println("Dobrodosao" + uname);
+		out.println("Dobrodosao " + uname);
+		
+		
 		
 		User user = new User();
 		
@@ -52,6 +55,8 @@ public class Register extends HttpServlet {
 		dp.writeData(user);
 		
 	}
+	
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -60,5 +65,6 @@ public class Register extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+	
 
 }

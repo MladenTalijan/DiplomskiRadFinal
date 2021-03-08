@@ -25,6 +25,7 @@ public class AddDiplController extends HttpServlet {
         String brojIndeksa = request.getParameter("brojIndeksa");
         String smer = request.getParameter("smer");
         String nameLastnameM = request.getParameter("nameLastnameM");
+        String date = request.getParameter("date");
         
         diplVo = new DiplVo();
         diplVo.setName(name);
@@ -32,6 +33,7 @@ public class AddDiplController extends HttpServlet {
         diplVo.setBrojIndeksa(brojIndeksa);
         diplVo.setSmer(smer);
         diplVo.setNameLastnameM(nameLastnameM);
+        diplVo.setDate(date);
         
         diplServis = new DiplServis();
         int i = diplServis.saveDipl(diplVo);

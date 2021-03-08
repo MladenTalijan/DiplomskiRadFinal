@@ -20,11 +20,11 @@ List<DiplDto> list = (ArrayList<DiplDto>)request.getAttribute("list");
         <h1> Pogledaj sve diplomske radove</h1>
 		<table border="1px">
 		<thead>
-		<tr><td>Naziv diplomskog rada</td><td>Ime i prezime studenta</td><td>Broj indeksa</td><td>Smer</td><td>Ime i prezime mentora</td></tr>
+		<tr><td>Naziv diplomskog rada</td><td>Ime i prezime studenta</td><td>Broj indeksa</td><td>Smer</td><td>Ime i prezime mentora</td><td>Datum</td></tr>
 		</thead>
 		<%
 		for(DiplDto d : list){%>
-		<tr><td><%=d.getName() %></td><td><%=d.getNameLastname() %></td><td><%=d.getBrojIndeksa() %></td><td><%=d.getSmer() %></td><td><%=d.getNameLastnameM() %></td></tr>
+		<tr><td><%=d.getName() %></td><td><%=d.getNameLastname() %></td><td><%=d.getBrojIndeksa() %></td><td><%=d.getSmer() %></td><td><%=d.getNameLastnameM() %></td><td><%=d.getDate() %></td></tr>
 		<%}
 		%>
 		</table>

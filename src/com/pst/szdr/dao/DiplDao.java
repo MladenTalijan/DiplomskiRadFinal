@@ -14,11 +14,11 @@ import com.pst.szdr.vo.DiplVo;
 
 //Data access object
 public class DiplDao {
-	private final String SAVE_DIPL = "insert into diplomski(name, nameLastname, brojIndeksa, smer, nameLastnameM)values(?,?,?,?,?)";
-	private final String VIEW_DIPL ="select name, nameLastname, brojIndeksa, smer, nameLastnameM from diplomski";
+	private final String SAVE_DIPL = "insert into diplomski(name, nameLastname, brojIndeksa, smer, nameLastnameM, date)values(?,?,?,?,?,?)";
+	private final String VIEW_DIPL ="select name, nameLastname, brojIndeksa, smer, nameLastnameM, date from diplomski";
     private final String DELETE_DIPL = "delete from diplomski where name = ?";
-    private final String SEARCH_DIPL = "select name, nameLastname, brojIndeksa, smer, nameLastnameM from diplomski where name=?";
-	private final String UPDATE_DIPL = "update diplomski set nameLastname=?, brojIndeksa=?, smer=?, nameLastnameM=? where name=?";
+    private final String SEARCH_DIPL = "select name, nameLastname, brojIndeksa, smer, nameLastnameM, date from diplomski where name=?";
+	private final String UPDATE_DIPL = "update diplomski set nameLastname=?, brojIndeksa=?, smer=?, nameLastnameM=?, date=? where name=?";
     public int addDipl(DiplBo diplBo){
       //do database operation logic
       int i = 0;
@@ -31,6 +31,7 @@ public class DiplDao {
             ps.setString(3, diplBo.getBrojIndeksa());
             ps.setString(4, diplBo.getSmer());
             ps.setString(5, diplBo.getNameLastnameM());
+            ps.setString(6, diplBo.getDate());
             
             i = ps.executeUpdate();
         }catch(Exception e){
@@ -53,6 +54,7 @@ public class DiplDao {
         		dto.setBrojIndeksa(rs.getString(3));
         		dto.setSmer(rs.getString(4));
         		dto.setNameLastnameM(rs.getString(5));
+        		dto.setDate(rs.getString(6));
         		diplList.add(dto);
         	}
     	}catch(Exception e) {
@@ -87,6 +89,7 @@ public class DiplDao {
         		dto.setBrojIndeksa(rs.getString(3));
         		dto.setSmer(rs.getString(4));
         		dto.setNameLastnameM(rs.getString(5));
+        		dto.setDate(rs.getString(6));
         	}
     	}catch(Exception e) {
     		e.printStackTrace();
@@ -103,6 +106,7 @@ public class DiplDao {
         	ps.setString(3, diplBo.getSmer());
         	ps.setString(4, diplBo.getNameLastnameM());
         	ps.setString(5, diplBo.getName());
+        	ps.setString(6, diplBo.getDate());
         	i = ps.executeUpdate();
     	}catch(Exception e) {
     		e.getStackTrace();

@@ -18,18 +18,21 @@
                 var brojIndeksa = document.forms["dipl_form"]["brojIndeksa"].value;
                 var smer = document.forms["dipl_form"]["smer"].value;
                 var nameLastnameM = document.forms["dipl_form"]["nameLastnameM"].value;
+                var date = document.forms["dipl_form"]["date"].value;
                 
                 var nameStatus;
                 var nameLastnameStatus;
                 var brojIndeksaStatus;
                 var smerStatus;
                 var nameLastnameMStatus;
+                var dateStatus;
                 
                 var nameMsg;
                 var nameLastnameMsg;
                 var brojIndeksaMsg;
                 var smerMsg;
                 var nameLastnameMMsg;
+                var dateMsg;
                     
                     if(document.getElementById("nameMsg").innerHTML  != ""){
                         document.getElementById("nameMsg").innerHTML = "";
@@ -45,6 +48,9 @@
                     }
                     if(document.getElementById("nameLastnameMMsg").innerHTML  != ""){
                         document.getElementById("nameLastnameMMsg").innerHTML = "";
+                    }
+                    if(document.getElementById("dateMsg").innerHTML  != ""){
+                        document.getElementById("dateMsg").innerHTML = "";
                     }
                     
                     if(name == ""){
@@ -82,6 +88,13 @@
                         spanEle.style.color = "red";
                         spanEle.innerHTML = nameLastnameMMsg;
                         //document.getElementById("nameLastnameMMsg").innerHTML = nameLastnameMMsg;
+                    }if(date == ""){
+                        dateStatus = false;
+                        dateMsg = "*datum mora biti popunjen!";
+                        var spanEle = document.getElementById("dateMsg");
+                        spanEle.style.color = "red";
+                        spanEle.innerHTML = dateMsg;
+                        //document.getElementById("dateMsg").innerHTML = dateMsg;
                     }
                     
                 if(nameStatus == false || nameLastnameStatus == false || brojIndeksaStatus == false || smerStatus == false || nameLastnameMStatus == false){
@@ -121,6 +134,8 @@
                             </select><span id = "smerMsg"></span></td></tr>
                     
                     <tr><td>Ime i prezime mentora</td><td><input type="text" name="nameLastnameM"><span id = "nameLastnameMMsg"></span></td></tr>
+                    
+                    <tr><td>Datum i vreme</td><td><input type="date" name="date"><span id = "dateMsg"></span></td></tr>
                     
                     <tr><td><input type="submit" value="Dodaj diplomski rad"><td><input type="button" value="Cancel"></td></td></tr>
                     
